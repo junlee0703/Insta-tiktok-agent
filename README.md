@@ -18,39 +18,45 @@ automatically.
 <p align="center"><em>A frame straight out of the pipeline. Your own footage
 plays behind the text; the gradient here stands in for it.</em></p>
 
-## Never used a terminal?
+## Start here
 
-You do two things once. After that you talk to it in plain English.
-
-**1. Get the files.** On this repo's GitHub page, click the green **Code**
-button, then **Download ZIP**. Unzip it and put the folder somewhere you will
-find again, like your Desktop.
-
-**2. Install Claude Code**, following the instructions at
-[claude.com/claude-code](https://claude.com/claude-code).
-
-**3. Open the folder in Claude Code and type this:**
+Install [Claude Code](https://claude.com/claude-code). Open it, and paste this
+one line:
 
 ```
-set me up
+Clone https://github.com/junlee0703/Insta-tiktok-agent.git, read its AGENTS.md, and walk me through setting it up.
 ```
 
-It checks what is missing, installs what it needs, connects your Instagram,
-and asks you about your channel in plain language. It writes every config file
-for you. You never have to edit one by hand, and it will not post anything
-during setup.
+That is the whole setup. It downloads the code, installs anything missing,
+connects your Instagram, and asks you about your channel in plain language. It
+writes every config file for you, so you never edit one by hand, and it will
+not post anything while setting up.
 
-When you are set up, type `make 1 vid` for your first one. You will see the
-words before anything goes live.
+When it says setup is clean, say:
 
-**Two things nobody can do for you:**
+```
+make 1 vid
+```
+
+You will see the exact words before anything goes live.
+
+### What you need first
+
+The setup can do everything except these three, so have them ready:
 
 - **A Postiz account with an Instagram business account connected.** A personal
-  Instagram will not work. Switching to a business account is free and takes a
+  Instagram cannot be posted to. Switching to business is free and takes a
   minute in the Instagram app settings.
-- **Your own footage.** A few short background clips, ordinary phone video of
-  you working or sitting or walking, loosely related to your topic. Unpolished
-  is correct. If you want TikTok too, some candid photos as well.
+- **Your own background footage.** A few short clips of you working, walking,
+  sitting, whatever suits your topic. Ordinary phone video is right. Polished is
+  not the goal. If you want TikTok too, some candid photos as well.
+- **Something to say.** Notes, documents, or PDFs about your subject. The agent
+  will not invent facts, so with an empty `knowledge/` folder it stops and asks
+  instead of making something up.
+
+Those last two are the actual work. Setup takes fifteen minutes; filming
+footage and writing down what you know takes a weekend. That is the honest
+tradeoff.
 
 ## What is included
 
@@ -73,8 +79,8 @@ are no connected integrations. That part is yours.
 
 ## Requirements
 
-If you followed "Never used a terminal?" above, skip this. The agent installs
-these for you during setup.
+If you used the one-line setup above, skip this. The agent installs these for
+you.
 
 - macOS or Linux
 - Python 3.9+ and the packages in `scripts/requirements.txt`
@@ -91,12 +97,12 @@ no API keys to paste and no `.env` file to fill in.
 
 ## Setup by hand
 
-The terminal-free path is above. This is the same thing for people who would
-rather run it themselves.
+The one-line path above is the same thing done for you. Run it yourself if you
+would rather:
 
 ```bash
-git clone <your-repo-url>
-cd <your-repo>
+git clone https://github.com/junlee0703/Insta-tiktok-agent.git
+cd Insta-tiktok-agent
 pip install -r scripts/requirements.txt
 postiz auth:login
 python3 scripts/check_setup.py
@@ -168,17 +174,31 @@ Split by who owns what, so you can pull updates without merge conflicts.
 | `photos/rotation/` | `AGENTS.md` |
 | `instagram/style_guide.md`, `tiktok/`, `linkedin/` | `fonts/` |
 
-## Pulling updates
+## Your own copy, and updates
 
-Copies made from this template do not update themselves. To get later fixes:
+A plain clone works fine for running everything. Your commits stay on your
+machine. You cannot push to this repo, and the agent will refuse to try.
+
+To get later fixes:
 
 ```bash
-git remote add upstream https://github.com/junlee0703/Insta-tiktok-agent.git
-git pull upstream main
+git pull
 ```
 
-Do that whenever you want, or never. Because your files and the base files live
-in different folders, the merge is usually clean.
+Because your files and the base files live in different folders, that merge is
+usually clean.
+
+If you want your own copy on GitHub, make an empty repository there and point
+this one at it:
+
+```bash
+git remote set-url origin https://github.com/<you>/<your-repo>.git
+git remote add upstream https://github.com/junlee0703/Insta-tiktok-agent.git
+git push -u origin main
+```
+
+After that, `git push` saves your work and `git pull upstream main` fetches
+base fixes when you want them.
 
 ## Support
 

@@ -248,10 +248,12 @@ Instagram workflow:
 
 - **This is a working copy of a public template, so `origin` may not belong to
   the user.** Before any push, run `git remote -v`. If `origin` still points at
-  the upstream template (`junlee0703/Insta-tiktok-agent`), **do not push.**
-  Explain that they need their own repository: either GitHub's "Use this
-  template" button, or a new empty repo set as `origin`. Never push to a remote
-  the user does not own.
+  the upstream repo (`junlee0703/Insta-tiktok-agent`), **do not push.** Their
+  local commits are safe either way; pushing is what needs a remote of their
+  own. If they want one, have them create an empty GitHub repository, then
+  `git remote set-url origin <their repo>` and
+  `git remote add upstream https://github.com/junlee0703/Insta-tiktok-agent.git`.
+  Never push to a remote the user does not own.
 - **Never pull or merge from the upstream template on your own initiative.**
   Upstream carries base updates that can overwrite the user's `brand.md`, style
   guides, and content. Pull from upstream only when the user explicitly asks for
