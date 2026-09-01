@@ -1,0 +1,17 @@
+# Generated media and Python caches are reproducible and grow quickly.
+output/
+scripts/__pycache__/
+*.pyc
+.tools/
+.venv/
+
+# Keep credentials and local environment overrides out of Git.
+.env
+.env.*
+!.env.example
+
+# Local tool and operating-system files.
+.codex/
+.agents/
+.DS_Store
+Thumbs.db

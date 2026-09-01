@@ -1,0 +1,35 @@
+{
+  "_note": "2026-08-05 per explicit user instruction: font_size/min_font_size raised +10px (28/22 -> 38/32, x/width 90/900 held identical); text color changed white -> black (#000000), background_color (the yellow #FFCC0033 highlight) unchanged. Revised 2026-08-06, explicit user instruction: background_radius raised to 16 (was 6) -- see playbook.md's 2026-08-06 note. Revised 2026-08-08, same ~35% font bump as the teaching/mistake boxes (38/32 -> 51/43) for visual consistency across all slides-after-the-hook -- position untouched, y=860/height=200/valign=center already put this box's center at y=960, exactly the canvas midpoint, so no vertical_center_group needed here (that's a single-box centering, not a multi-box group).",
+  "canvas_size": [1080, 1920],
+  "text_boxes": [
+    {
+      "name": "cta",
+      "x": 90, "y": 860, "width": 900, "height": 200,
+      "font": "fonts/Montserrat-Bold.ttf",
+      "font_size": 51, "min_font_size": 43, "auto_shrink": true,
+      "color": "#000000",
+      "align": "center", "valign": "center",
+      "line_spacing": 1.3,
+      "background_color": "#FFCC0033",
+      "background_mode": "per_line",
+      "background_padding_x": 12, "background_padding_y": 8,
+      "background_radius": 16
+    },
+    {
+      "name": "brand_tag",
+      "x": 90, "y": 70, "width": 900, "height": 40,
+      "font": "fonts/Montserrat-Medium.ttf",
+      "font_size": 12, "auto_shrink": false,
+      "color": "#FFFFFF80",
+      "align": "center", "valign": "top"
+    },
+    {
+      "name": "watermark",
+      "x": 700, "y": 1860, "width": 330, "height": 40,
+      "font": "fonts/Montserrat-Medium.ttf",
+      "font_size": 12, "auto_shrink": false,
+      "color": "#FFFFFF66",
+      "align": "right", "valign": "top"
+    }
+  ]
+}

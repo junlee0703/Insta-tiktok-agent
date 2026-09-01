@@ -1,0 +1,7 @@
+{
+  "_note": "Tracks how many times each photos/rotation/ photo has been used, split separately per slot type (body / cta) -- see scripts/pick_photos.py's docstring for why the split matters. Safe to leave the counts empty until you add real photos; unlike clips_usage.json, pick_photos.py defaults missing entries to 0 rather than crashing. New photo filenames don't need a pre-seeded entry here, only in rotation_positions.json (see that file's _note).",
+  "counts": {
+    "body": {},
+    "cta": {}
+  }
+}

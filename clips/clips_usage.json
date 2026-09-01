@@ -1,0 +1,4 @@
+{
+  "_note": "Tracks how many times each clips/ video has been used as an Instagram Reels background, least-used-first (scripts/pick_clip.py reads/updates this automatically). SEED THIS BEFORE FIRST USE: add one entry per clip filename you drop into clips/, all starting at 0, e.g. {\"my_clip_a.mov\": 0, \"my_clip_b.mov\": 0}. pick_clip.py calls min() on these counts directly and will crash on an empty dict, so this file can't stay blank once you're ready to render.",
+  "counts": {}
+}

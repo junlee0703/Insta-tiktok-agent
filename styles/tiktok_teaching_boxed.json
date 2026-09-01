@@ -1,0 +1,80 @@
+{
+  "_note": "heading/body font_size and min_font_size both raised +10px 2026-08-05 (heading 32/24 -> 42/34, body 24/20 -> 34/30) per explicit user instruction -- x/width (90/900) held identical, only the text got bigger. Revised 2026-08-06, explicit user instruction: heading/body background_radius both raised to 16 (was 6/4) -- see playbook.md's 2026-08-06 note. Revised 2026-08-08, explicit user instruction ('slides after 1st slide sit in the upper third and are too small... center it vertically... bump font size up 30-40%'): font_size/min_font_size raised ~35% again (heading 42/34 -> 57/46, body 34/30 -> 46/41), height/gap scaled by the same factor so the auto-shrink line-count tolerance is preserved (heading height 140->190, body height 400->540, y_below gap 30->40). heading no longer sits at a fixed y=576 -- the style now sets vertical_center_group so generate_slides.py measures heading+body's actual rendered height per slide and centers the pair as a unit on the canvas, see playbook.md's 2026-08-08 note and generate_slides.py's measure_text_box_height().",
+  "canvas_size": [
+    1080,
+    1920
+  ],
+  "vertical_center_group": ["heading", "body"],
+  "text_boxes": [
+    {
+      "name": "heading",
+      "x": 90,
+      "y": 576,
+      "width": 900,
+      "height": 190,
+      "font": "fonts/Montserrat-Bold.ttf",
+      "font_size": 57,
+      "min_font_size": 46,
+      "auto_shrink": true,
+      "color": "#FFCC00",
+      "align": "center",
+      "valign": "top",
+      "line_spacing": 1.2,
+      "background_color": "#1A1A1AE6",
+      "background_mode": "per_line",
+      "background_padding_x": 12,
+      "background_padding_y": 8,
+      "background_radius": 16
+    },
+    {
+      "name": "body",
+      "x": 90,
+      "y_below": {
+        "of": "heading",
+        "gap": 40
+      },
+      "width": 900,
+      "height": 540,
+      "font": "fonts/Montserrat-Medium.ttf",
+      "font_size": 46,
+      "min_font_size": 41,
+      "auto_shrink": true,
+      "color": "#FFFFFF",
+      "align": "center",
+      "valign": "top",
+      "line_spacing": 1.35,
+      "background_color": "#111111D9",
+      "background_mode": "per_line",
+      "background_padding_x": 10,
+      "background_padding_y": 6,
+      "background_radius": 16,
+      "inline_runs": true
+    },
+    {
+      "name": "brand_tag",
+      "x": 90,
+      "y": 70,
+      "width": 900,
+      "height": 40,
+      "font": "fonts/Montserrat-Medium.ttf",
+      "font_size": 12,
+      "auto_shrink": false,
+      "color": "#FFFFFF80",
+      "align": "center",
+      "valign": "top"
+    },
+    {
+      "name": "watermark",
+      "x": 700,
+      "y": 1860,
+      "width": 330,
+      "height": 40,
+      "font": "fonts/Montserrat-Medium.ttf",
+      "font_size": 12,
+      "auto_shrink": false,
+      "color": "#FFFFFF66",
+      "align": "right",
+      "valign": "top"
+    }
+  ]
+}

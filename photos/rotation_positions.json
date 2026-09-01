@@ -1,0 +1,8 @@
+{
+  "_note": "Authoritative photo -> text-position manifest. Each photo you add to photos/rotation/ needs one entry under \"positions\" (filename -> a position tag, e.g. \"top\"/\"middle\"/\"bottom\"/\"lower_left\"/etc. -- the exact tag vocabulary is up to you, scripts/pick_photos.py just uses it to avoid two adjacent slides sharing the same position and to build the \"middle\" pool the CTA slide draws from). At least one photo must be tagged \"middle\" or the CTA slide has nothing to draw from. EMPTY RIGHT NOW -- pick_photos.py exits with an explanatory error until you add photos here. \"roles\" configures two optional special slots, both null by default: \"fixed_slide_2\" is a photo used on slide 2 of every video and never counted for fairness, and \"cta_only\" is a photo reserved exclusively for the CTA slide. Set either to one of your own filenames to enable it, or leave it null to let every slide draw from the general pool.",
+  "roles": {
+    "fixed_slide_2": null,
+    "cta_only": null
+  },
+  "positions": {}
+}

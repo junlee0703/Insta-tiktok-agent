@@ -1,0 +1,65 @@
+{
+  "_note": "TikTok-only fork of styles/ig_question_overlay.json. The brand tag sits at y=300 and a fixed Swipe right prompt renders on slide 1. The technical question uses bundled Montserrat Bold, 42px white text, and per-line dark highlight boxes. Its background color can be overridden per post through style_overrides. This file has no caption_below box. The technical question must fit 3 lines at its fixed 42px; shorten wording that wraps further and check that it does not collide with the prompt.",
+  "canvas_size": [
+    1080,
+    1920
+  ],
+  "text_boxes": [
+    {
+      "name": "brand_tag",
+      "x": 0,
+      "y": 300,
+      "width": 1080,
+      "height": 60,
+      "font": "fonts/Montserrat-Bold.ttf",
+      "font_variation": "Black",
+      "font_size": 46,
+      "auto_shrink": false,
+      "color": "#FFFFFFB3",
+      "align": "center",
+      "valign": "top",
+      "letter_spacing": 1.5,
+      "background_color": "#2E2E5E",
+      "background_mode": "per_line",
+      "background_padding_x": 12,
+      "background_padding_y": 8,
+      "background_radius": 16
+    },
+    {
+      "name": "technical_question",
+      "x": 108,
+      "y": 440,
+      "width": 864,
+      "height": 250,
+      "font": "fonts/Montserrat-Bold.ttf",
+      "font_variation": "Semibold",
+      "font_size": 42,
+      "auto_shrink": false,
+      "color": "#FFFFFFFF",
+      "align": "center",
+      "valign": "top",
+      "line_spacing": 1.2,
+      "background_color": "#2E2E5E",
+      "background_mode": "per_line",
+      "background_padding_x": 10,
+      "background_padding_y": 6,
+      "background_radius": 16
+    },
+    {
+      "name": "swipe_right",
+      "x": 0,
+      "y": 1250,
+      "width": 1080,
+      "height": 60,
+      "font": "fonts/Montserrat-Bold.ttf",
+      "font_size": 42,
+      "auto_shrink": false,
+      "color": "#FFEE8C",
+      "align": "center",
+      "valign": "top",
+      "line_spacing": 1.2,
+      "stroke_width": 2,
+      "stroke_color": "#000000"
+    }
+  ]
+}
