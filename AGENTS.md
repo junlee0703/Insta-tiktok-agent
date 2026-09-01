@@ -246,27 +246,23 @@ Instagram workflow:
 
 ## Version control
 
-- Canonical GitHub repository:
-  `https://github.com/junlee0703/Insta-tiktok-agent.git`.
-- There is one shared version of this agent: the canonical repository's `main`
-  branch. Both people and both computers must use that branch rather than
-  maintaining separate versions.
-- Before doing any work, fetch and update the local branch from `origin/main` so
-  every change already pushed by either person is present and used locally.
-- Combine compatible local and remote changes into the single shared version.
-  If edits overlap, resolve them into one final result that retains both
-  people's intended changes when possible; ask the user only when the intended
-  combined result is genuinely ambiguous. Never discard work or force-push.
-- After completing and verifying any change to this agent codebase, commit the
-  relevant source/configuration changes and push `main` to the canonical
-  repository without asking for separate confirmation, so the other person or
-  computer receives them on its next sync.
+- **This is a working copy of a public template, so `origin` may not belong to
+  the user.** Before any push, run `git remote -v`. If `origin` still points at
+  the upstream template (`junlee0703/Insta-tiktok-agent`), **do not push.**
+  Explain that they need their own repository: either GitHub's "Use this
+  template" button, or a new empty repo set as `origin`. Never push to a remote
+  the user does not own.
+- **Never pull or merge from the upstream template on your own initiative.**
+  Upstream carries base updates that can overwrite the user's `brand.md`, style
+  guides, and content. Pull from upstream only when the user explicitly asks for
+  base updates, and show them what changed before merging.
+- Commit the user's work locally as it is produced: `brand.md`, style guides,
+  `knowledge/` additions, and the publishing log. Committing is always safe.
+  Pushing is what needs the ownership check above.
 - Never commit credentials, API keys, `.env` files, Python caches, or generated
-  `output/` renders. Source clips, knowledge, styles, scripts, instructions,
-  and the publishing log are part of the repository unless the user says
-  otherwise.
-- Do not force-push, rewrite shared history, or overwrite remote work. Pull and
-  integrate remote changes when necessary.
+  `output/` renders. Source clips, knowledge, styles, scripts, instructions, and
+  the publishing log belong in the repository unless the user says otherwise.
+- Do not force-push or rewrite history.
 
 ## Folder map
 
