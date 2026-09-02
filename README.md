@@ -24,7 +24,8 @@ Then say `make 1 vid`. You see the exact wording before anything goes live.
 ## You need Postiz
 
 **Nothing publishes without it.** Postiz is how the agent reaches Instagram and
-TikTok. There is no other path.
+TikTok. There is no other path, unless you have your own Instagram/TikTok API
+access (takes weeks/months to get).
 
 ### Sign up: [postiz.pro/dinoreach](https://postiz.pro/dinoreach)
 
