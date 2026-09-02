@@ -98,4 +98,4 @@ Runs on macOS and Linux. Needs Python 3.9+, ffmpeg, and jq; setup installs them.
 Provided as is, and issues may not be answered. If something breaks, run
 `python3 scripts/check_setup.py` first.
 
-MIT licensed.
+MIT licensed. See [LICENSE](LICENSE).

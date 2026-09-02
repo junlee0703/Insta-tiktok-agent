@@ -209,7 +209,7 @@ before creating any post.** `off` (the default) means the copy approval above
 is required. `on` means publish without showing copy first, and is only for
 someone who has watched this produce output they would have posted themselves.
 
-## Standing command: "make 3 vids"
+## Standing command: "make N vids"
 
 **Before starting, run `python3 scripts/check_setup.py`.** If it reports
 failures, do not attempt the workflow and do not produce a partial result. Say
@@ -217,20 +217,21 @@ what is missing in plain language and offer to set it up (see "First run"
 above). An unconfigured repo cannot produce content, and failing halfway
 through is worse than not starting.
 
-When the user says **"make 3 vids"** and setup is clean, execute the complete
-Instagram workflow:
+When the user says **"make 3 vids"**, **"make 1 vid"**, or any count, and setup
+is clean, execute the complete Instagram workflow for that many Reels. A first
+run after setup should be one, not three.
 
-1. Create three distinct Reels grounded exclusively in `knowledge/`.
+1. Create N distinct Reels grounded exclusively in `knowledge/`.
 2. Use the established Instagram style, clip rotation, highlight rotation,
    caption format, credibility-led `brand_tag`, and all visual QA rules.
-3. Assign the standard America/Los_Angeles slots: 7:00 AM, 12:00 PM, and
-   7:00 PM.
-4. If the request arrives from 12:00 AM through 5:59 AM Pacific, use the
-   current calendar date. If it arrives at or after 6:00 AM Pacific, use the
-   next calendar date.
-5. **Show all three sets of copy in chat and wait for approval** (see "Copy
+3. Assign slots from the schedule configured in [brand.md](brand.md), taking
+   the first N of them. If that section is still a placeholder, ask for their
+   posting times rather than assuming any.
+4. A request arriving before 6:00 AM in that timezone targets the current
+   calendar date; at or after 6:00 AM it targets the next calendar date.
+5. **Show every set of copy in chat and wait for approval** (see "Copy
    approval" above), unless autopilot is `on`. Revise if asked.
-6. Once approved, render and inspect all three videos, upload them to Postiz,
+6. Once approved, render and inspect all N videos, upload them to Postiz,
    create them with `-t schedule` as real public posts, verify their states
    and timestamps, and log the results. Do not ask for topic, visual,
    scheduling, upload, or publishing confirmation at this stage; the copy
@@ -238,7 +239,7 @@ Instagram workflow:
 7. Every Instagram Reel must include music. Use Postiz `audioSearch` (an empty
    query is fine for random/trending results), select a track at random, and
    pass the returned `audio.id` in `posts:create`. Vary tracks within a
-   three-Reel batch when the result set allows it. Never call Meta's Graph API
+   a batch when the result set allows it. Never call Meta's Graph API
    directly and never guess a track ID. There is no silent/no-music fallback:
    if Postiz authentication is expired, `audioSearch` is unavailable, or the
    search returns no usable track, do not create the scheduled post. Stop and

@@ -11,20 +11,23 @@ go-ahead. Once you approve the wording it renders, uploads, and publishes
 without asking again. Never create Instagram drafts. Turning on autopilot in
 [brand.md](brand.md) skips the copy approval as well.
 
-A typical schedule is three Reels per day at 7:00 AM, 12:00 PM, and 7:00 PM in
-your own timezone. LinkedIn and TikTok are not active channels by default.
+Posting slots and timezone are set in [brand.md](brand.md); three Reels a day is
+a typical starting point. LinkedIn and TikTok are not active channels by
+default.
 
-### "Make 3 vids" shorthand
+### "Make N vids" shorthand
 
-`make 3 vids` authorizes the full three-Reel public Instagram workflow with no
-questions or copy preview. Create distinct, knowledge-grounded Reels for 7:00
-AM, 12:00 PM, and 7:00 PM America/Los_Angeles; rotate clips and highlights;
-render and visually inspect every Reel; upload them; create scheduled posts;
-verify the stored state/timestamps; and update `drafts/log.md`.
+`make 3 vids`, `make 1 vid`, or any count runs the full Instagram workflow for
+that many Reels. Create distinct,
+knowledge-grounded Reels for the slots and timezone set in [brand.md](brand.md);
+**show all three sets of copy in chat and wait for approval** (see "Copy
+approval" in `AGENTS.md`); then rotate clips and highlights, render and visually
+inspect every Reel, upload them, create the scheduled public posts, verify the
+stored state and timestamps, and update `drafts/log.md`.
 
-Date rule: a request received from 12:00 AM through 5:59 AM Pacific targets the
-current date. A request received at or after 6:00 AM Pacific targets the next
-date. This shorthand explicitly authorizes public publishing. Every Reel must
+Date rule: a request received before 6:00 AM in the user's configured timezone
+targets the current date; at or after 6:00 AM it targets the next date. Once the
+copy is approved, no further confirmation is needed. Every Reel must
 have music: call Postiz `audioSearch` (an empty query is fine for random or
 trending results), choose a returned track at random, and pass its `audio.id`
 when creating the post. Never use Meta Graph API directly, never guess an audio
@@ -216,7 +219,7 @@ phrasing pattern, quoted.
 
 **TikTok slide 1 forked off the shared Instagram style, 2026-08-05, explicit user spec ("FOR TIKTOK ONLY").** Slide 1 no longer renders `styles/ig_question_overlay.json` directly — it now uses `styles/tiktok_question_overlay.json`, a TikTok-only fork with exactly two differences from the Instagram file: (1) `brand_tag` moved down `y=200 → 350`; (2) a new `swipe_right` box (`"Swipe right →"`) rendered on every TikTok slide 1, always the same fixed text, not authored per-post. `hook` and `technical_question` are otherwise byte-identical between the two files (same position/size/font/color) — this is a narrow, deliberate divergence, not a full re-split; Instagram's `ig_question_overlay.json` is untouched. The new file has no `caption_below` box at all (TikTok never rendered that layer anyway, per the rule above — now enforced structurally by the file not defining it, rather than by the build script omitting it from the `text` dict).
 
-**`swipe_right` recentered and repositioned 2026-08-06, explicit user instruction ("The 'Swipe right' is like far left. Center it... move it down 150 Y points... make it 10px bigger").** Was left-aligned at `x=30, y=1100, width=400`, Arial Bold 32px. Now `x=0, y=1250, width=1080`, `align: "center"` (matching `brand_tag`'s full-canvas-width-centered pattern rather than a narrow left-anchored box), Arial Bold 42px. Text/color/stroke unchanged (yellow `#FFEE8C`, black stroke, no highlight background). **The earlier "tight spacing" flag from 2026-08-05 is superseded by this move** — at y=1250 (150px lower than the old y=1100), `swipe_right` now sits well clear of `technical_question`'s lowest line even for a 2-line question; re-check on a 3-line question regardless, same as always.
+**`swipe_right` placement.** Full canvas width (`x=0, width=1080`) with `align: "center"`, at `y=1250`, Montserrat Bold 42px, yellow `#FFEE8C` with a black stroke and no highlight background. At y=1250 it sits clear of `technical_question`'s lowest line for a two-line question; re-check on a three-line question.
 
 **`brand_tag` font size synced to Instagram's, 2026-08-07, explicit user instruction ("The brand tag... didnt change. It should be the same font size as instagram").** The 2026-08-06 batch only updated Instagram's `brand_tag` `font_size` (36→46); TikTok's fork was never touched for size, only for `y` and the `swipe_right`/color/radius changes documented above — an oversight, since `brand_tag` size was never meant to diverge between the two files (only `y` position and the `swipe_right` box are the deliberate TikTok-only differences). Now `font_size: 46` on both. TikTok's `brand_tag` also moved up 50px same day (`y=350→300`) alongside the same move on Instagram's file — see the "hook capped at 3 lines" note below for both.
 
@@ -403,9 +406,9 @@ python3 scripts/check_post_health.py --days 2   # exits 1 if anything is wrong
 ```
 
 `scripts/post_health_cron.sh` wraps it for cron: appends to
-`drafts/post_health.log` and raises a macOS notification on failure. Installed
-in the user's crontab as of 2026-08-08, running at 6:25/11:25/17:25 Pacific,
-about 25 minutes after each 8am/1pm/7pm Central slot.
+`drafts/post_health.log` and raises a desktop notification on failure where one
+is available. Install it in your crontab to run roughly 25 minutes after each of
+your posting slots, so a failure is caught while it is still easy to repost.
 
 **Recovering a failed post**: delete it, re-upload the already-rendered slides
 from its `output/` folder, and recreate it with the same caption and settings
